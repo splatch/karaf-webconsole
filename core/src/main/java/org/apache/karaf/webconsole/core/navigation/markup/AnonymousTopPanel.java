@@ -19,13 +19,15 @@ package org.apache.karaf.webconsole.core.navigation.markup;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.brand.BrandProvider;
 import org.apache.karaf.webconsole.core.dashboard.DashboardPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 
 /**
  * Top panel displayed to non authorized users.
@@ -34,7 +36,7 @@ public class AnonymousTopPanel extends Panel {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "brandProvider")
+    @Inject @Named("brandProvider")
     private BrandProvider brandProvider;
 
     public AnonymousTopPanel(String id, IModel<List<Locale>> locales) {

@@ -18,12 +18,14 @@ package org.apache.karaf.webconsole.core.preferences;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.page.SinglePage;
 import org.apache.karaf.webconsole.core.panel.PanelProvider;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.repeater.RepeatingView;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 import org.ops4j.pax.wicket.api.PaxWicketMountPoint;
 import org.osgi.service.prefs.BackingStoreException;
 
@@ -35,7 +37,7 @@ public class PreferencesPage extends SinglePage {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "preferencesProviders")
+    @Inject @Named("preferencesProviders")
     private List<PanelProvider> providers;
 
     public PreferencesPage() throws BackingStoreException {

@@ -20,6 +20,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.brand.BrandProvider;
 import org.apache.karaf.webconsole.core.navigation.markup.LanguageTopPanel;
 import org.apache.wicket.behavior.Behavior;
@@ -28,7 +31,6 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.util.ListModel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 
 /**
  * Base page for resource loading and keeping same look and feel in extensions.
@@ -40,7 +42,7 @@ public class BasePage extends WebPage {
     /**
      * Brand provider responsible for l&f customization.
      */
-    @PaxWicketBean(name = "brandProvider")
+    @Inject @Named("brandProvider")
     protected BrandProvider brandProvider;
 
     // list of supported Locales - should be replaced by resolver/detector or something similar

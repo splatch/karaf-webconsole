@@ -18,6 +18,9 @@ package org.apache.karaf.webconsole.core.navigation.markup;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.navigation.ConsoleTabProvider;
 import org.apache.karaf.webconsole.core.util.LinkUtils;
 import org.apache.wicket.AttributeModifier;
@@ -28,7 +31,6 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 
 /**
  * Panel which renders tabs to active module children. It is not extension of
@@ -38,7 +40,7 @@ public class ModuleTabPanel extends Panel {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "tabs")
+    @Inject @Named("tabs")
     protected List<ConsoleTabProvider> tabs;
 
     @SuppressWarnings("serial")

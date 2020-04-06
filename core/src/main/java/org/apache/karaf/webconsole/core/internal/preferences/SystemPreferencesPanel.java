@@ -16,11 +16,13 @@
  */
 package org.apache.karaf.webconsole.core.internal.preferences;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.page.AvatarImage;
 import org.apache.karaf.webconsole.core.preferences.PreferencesModel;
 import org.apache.karaf.webconsole.core.security.WebConsoleSession;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 import org.osgi.service.prefs.Preferences;
 import org.osgi.service.prefs.PreferencesService;
 
@@ -31,7 +33,7 @@ public class SystemPreferencesPanel extends Panel {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "preferencesService")
+    @Inject @Named("preferencesService")
     private PreferencesService preferences;
 
     public SystemPreferencesPanel(String id) {

@@ -54,6 +54,7 @@ public class CamelContextsPage extends CamelPage {
         @SuppressWarnings("serial")
         IColumn<CamelContext, String>[] columns = new IColumn[] {
             new OrdinalColumn<CamelContext>(),
+            
             new PropertyColumnExt<CamelContext>("Name", "name"),
             new PropertyColumnExt<CamelContext>("Version", "version"),
             new PropertyColumnExt<CamelContext>("Status", "status"),

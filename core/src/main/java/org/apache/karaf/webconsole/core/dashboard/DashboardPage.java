@@ -18,6 +18,9 @@ package org.apache.karaf.webconsole.core.dashboard;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.behavior.CssBehavior;
 import org.apache.karaf.webconsole.core.page.SinglePage;
 import org.apache.karaf.webconsole.core.widget.WidgetProvider;
@@ -25,7 +28,6 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.util.ListModel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 import org.ops4j.pax.wicket.api.PaxWicketMountPoint;
 
 /**
@@ -36,7 +38,7 @@ public class DashboardPage extends SinglePage {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "widgets")
+    @Inject @Named("widgets")
     private List<WidgetProvider> widgets;
 
     @SuppressWarnings("serial")

@@ -19,6 +19,9 @@ package org.apache.karaf.webconsole.core.navigation.markup;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.karaf.webconsole.core.navigation.ConsoleTabProvider;
 import org.apache.karaf.webconsole.core.page.AvatarImage;
 import org.apache.karaf.webconsole.core.preferences.PreferencesPage;
@@ -33,7 +36,6 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.IModel;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
 import org.osgi.service.prefs.PreferencesService;
 
 /**
@@ -43,10 +45,10 @@ public class NavigationTopPanel extends LanguageTopPanel {
 
     private static final long serialVersionUID = 1L;
 
-    @PaxWicketBean(name = "preferencesService")
+    @Inject @Named("preferencesService")
     private PreferencesService preferences;
 
-    @PaxWicketBean(name = "tabs")
+    @Inject @Named("tabs")
     protected List<ConsoleTabProvider> tabs;
 
     public NavigationTopPanel(String id, IModel<List<Locale>> locales) {
